@@ -7,7 +7,18 @@ namespace Domain.Data
     {
         public CarsDbContext()
         {
-            // Disabling any Entity Framework DB initialization/auto-migration
+           Initialize();
+        }
+
+        public CarsDbContext(string connectionString)
+            : base(connectionString)
+        {
+           Initialize();
+        }
+
+        private void Initialize()
+        {
+             // Disabling any Entity Framework DB initialization/auto-migration
             Database.SetInitializer<CarsDbContext>(null);
         }
 
